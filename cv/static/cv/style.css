@@ -1,0 +1,920 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+
+:root{
+    --shad_clr: #0f0f0f4f;
+    --text-gray: #c7c5c5;
+    --clr1: #f59782;
+    --clr2: #F4F4F4;
+    --clr3: lightgrey;
+    --clr4: #595858;
+    --clr5: #591C21;
+    --clr6: #591c2164;
+    --clr7: #F4F4F4;
+    --clr8: #D92525;
+    --clr9: #00000066;
+    --clr10: #C50D5A;
+    /* --test: #363535; */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.5;
+    color: var(--clr4);
+    margin: 0;
+    padding: 0;
+}
+
+/* ............................................ */
+/* ............................................ */
+/* ..............%   BASE   %.................. */
+/* ............................................ */
+/* ............................................ */
+
+/* .............................................. */
+/* .............%   NAV BAR   %.................. */
+nav{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 20px 0;
+    box-shadow: 0 8px 12px var(--shad_clr);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav li{
+    list-style-type: none;
+}
+
+nav li a{
+    text-decoration: none;
+    color: var(--clr5);
+    font-size: 18px;
+    transition-duration: 0.5s;
+    /* border: 2px solid var(--clr5);
+    border-radius: 20px;
+    padding: 5px 30px; */
+}
+
+nav li a:hover{
+    color: var(--clr1);
+    font-size: 20px;
+    border-bottom: solid 3px var(--clr1);
+}
+
+li.name-as-logo{
+    font-family: 'Raleway', sans-serif;
+    color: var(--clr5);
+    font-weight: 900;
+    font-size: 18px;
+}
+
+#contact-nav-link{
+    background-color: var(--clr5);
+    padding: 5px 20px;
+    color: white;
+    border-radius: 4rem;
+}
+
+#contact-nav-link:hover{
+    background-color: white;
+    color: var(--clr10);
+    border-bottom: 2px solid var(--clr10);
+    border-left: 2px solid var(--clr10);
+}
+
+
+/* .............................................. */
+/* ..............%   FOOTER   %.................. */
+div.floating_button_div{
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    z-index: 10;
+    border-radius: 50%;
+    box-shadow: 0px 0px 4px 2px var(--shad_clr);
+    transition-duration: .5s;
+}
+  
+div.floating_button_div:hover{
+bottom: 65px;
+right: 25px;
+box-shadow: 5px 5px 4px var(--shad_clr);
+}
+
+div.floating_button_div a{
+text-decoration: none;
+color: white;
+}
+
+div.floating_button_div img{
+width: 50px;
+display: block;
+}
+
+
+
+
+/* .............................................. */
+/* ..............%   FOOTER   %.................. */
+footer{
+    position: relative;
+}
+
+footer img#foot_pic{
+    width: 100%;
+    display: block;
+}
+
+footer div.social_info{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 300px;
+    margin-left: -150px;
+}
+
+footer div.social_icone{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(255, 255, 255, 0);
+    
+}
+
+footer div.social_icone img{
+    width: 40px;
+    border-radius: 50%;
+}
+
+footer div.social_info p#social{
+    color: white;
+    text-align: center;
+    margin-top: 24px;
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: var(--clr1) 5px solid;
+    box-shadow: 0px 0px 4px 5px var(--clr9);
+    border-radius: 30px;
+}
+
+footer div.social_info p#copyright{
+    background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+    text-align: center;
+    margin-top: 50px;
+    font-size: 14px;
+}
+
+
+
+
+/* ............................................ */
+/* ............................................ */
+/* .............%   INDEX   %.................. */
+/* ............................................ */
+/* ............................................ */
+
+/* ........................................... */
+/* .............%   HEADER   %................ */
+header{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+div.profil_text{
+    width: 55%;
+    text-align: center;
+    background-color: rgba(36, 36, 36, 0.391);
+}
+
+h1{
+    color: white;
+    margin: 50px 0 0 0;
+    font-size: 50px;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+div.short_line{
+    height: 2px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+
+div.profil_text p{
+    color: var(--clr2);
+    font-size: 20px;
+    margin-bottom: 50px;
+    padding: 0 30px;
+    padding-top: 20px;
+}
+
+div.main_button_container0{
+    display: block;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+div.main_button{
+    padding: 5px 20px;
+    display: inline-block;
+    background-color: var(--clr5);
+}
+
+div.main_button a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+div#email p{
+    /* font-size: 15px; */
+    text-align: left;
+    margin-bottom: 0;
+    padding: 5px 20px;
+    background-color: #591c2164;
+}
+
+div.profil_img_container{
+    background-color: rgb(235, 230, 230);
+    width: 50%;
+    box-shadow: -5px 0px 6px 6px var(--clr9
+    );
+    margin-right: -10px;
+}
+
+header img{
+    display: block;
+    width: 100%;
+    
+}
+
+div.email_lower_at_bottom p{
+    margin-bottom: 0;
+}
+
+div.email_lower_at_bottom p a{
+    text-decoration: none;
+    color: lightgrey;
+    font-size: 13px;
+}
+
+/* ................................................... */
+/* .............%   PROFIL INTRO   %.................. */
+
+section.intro{   
+    /* background: url(triangle2.svg) no-repeat center bottom/100%; */
+    background-color: var(--clr5);
+    margin-top: -2px;
+    text-align: center;
+    /* margin-bottom: -1px; */
+    padding-top: 10px;
+}
+
+section.intro .intro-block{
+    /* margin-top: 30px; */
+    padding: 10px 20px 100px 20px;
+    border-top-left-radius: 5rem;
+    background-color: white;
+}
+
+section.intro p{
+    display: inline-block;
+    font-size: 20px;
+    max-width: 700px;
+    margin: 50px 0 30px 0;
+}
+
+
+/* ................................................... */
+/* ................%   MORE INFO   %.................. */
+
+section.More_info{
+    background-color: var(--clr7);
+    padding: 100px 0px;
+    margin: 0;
+}
+
+div.txt{
+    width: 48%;
+    text-align: justify;
+    display: inline-block;
+    z-index: 3;
+    margin: 0px 0 50px 50px;
+    padding: 10px 0px 40px 0px;
+    font-size: 18px;
+}
+
+h2{
+    font-size: 35px;
+    font-weight: bold;
+    color: var(--clr10);
+    display: inline-block;
+    border-bottom: solid 3px var(--clr10);
+}
+
+div.h2_container{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+div.info_bloc_img_container{
+    background-color: var(--clr10);
+    width: 40%;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+div.info_bloc_img_container img{
+    width: 100%;
+    display: block;
+    position: relative;
+    bottom: -50px;
+    right: -30px;
+    box-shadow: -15px -8px 3px var(--clr9);
+    transition-duration: 1s;
+    /* max-height: 400px; */
+}
+
+div.info_bloc_img_container img:hover{
+    width: 110%;
+}
+
+div.txt p{
+    padding: 20px 0px;
+    margin: 0;
+    color: #a09d9d;
+}
+
+a.bouton_linkedin{
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    color: var(--clr1);
+    border-bottom: solid 3px var(--clr1);
+    padding: 5px 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+div.bouton_cv{
+    margin: 10px 0 20px 0;
+    text-align: center;
+}
+
+div.bouton_cv a{
+    text-decoration: none;
+    color: var(--clr1);
+    border: solid 2px var(--clr10);
+    padding: 10px 30px;
+    font-weight: bold;
+    transition-duration: 0.5s;
+    box-shadow: -5px -5px 0px var(--clr1);
+    background-color: white;
+}
+
+div.bouton_cv a:hover{
+    font-size: 14px;
+    box-shadow: -3px 3px 2px var(--clr9);
+    border-bottom: solid 2px var(--main_orange_colr1);
+    border-left: solid 2px var(--main_orange_colr1);
+    color: var(--clr1);
+}
+
+
+/* ................................................... */
+/* ................%   Portfolio   %.................. */
+
+section.portfolio h2{
+    margin-bottom: 0;
+}
+
+div.portf_category{
+    margin: 100px 0;
+    text-align: center;
+}
+
+div.portf_category h3.portf_category_title{
+    display: inline-block;
+    color: var(--clr4);
+    border-bottom: solid 2px var(--clr4);
+    text-align: center;
+    font-size: 28px;
+    margin: 0;
+    margin-bottom: 60px;
+}
+
+.layout_set{
+    border-collapse: collapse;
+    border-spacing: 10px;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+div.portf_layout{
+    width: 90%;
+    box-shadow: 0px 0px 4px 5px var(--clr9);
+    display: flex;
+    transition-duration: 1s;
+}
+
+div.portf_layout:hover{
+    width: 97%;
+}
+
+div.portf_layout h3{
+    font-size: 18px;
+    color: var(--clr1);
+    text-align: left;
+}
+
+div.portf_layout div.img{
+    width: 40%;
+}
+
+div.portf_layout div.describ_text{
+    font-size: 16px;
+    text-align: left;
+    padding: 30px 40px;
+    width: 60%;
+}
+
+.arrow_td{
+    width: 5%;
+    padding: 0px 10px;
+    box-shadow: 0px 0px 4px 5px var(--clr9);
+}
+
+img.next_arrow{
+    width: 50px;
+    transform: rotate(90deg);
+}
+
+
+
+/* ............................................... */
+/* ................%   Quote   %.................. */
+
+section.quote{
+    padding-top: 200px;
+    padding-bottom: 100px;
+}
+
+section.quote div.img_container{
+    max-width: 550px;
+    margin: 50px auto;
+    box-shadow: -10px -3px 4px var(--shad_clr);
+}
+
+section.quote div.img{
+    width: 100%;
+    height: 0px;
+    padding-top: 100%;
+    margin: 50px auto;
+    background-color: var(--clr1);
+    background-size: contain;
+    animation: fondu 30s ease-in-out infinite both;
+    /* border-top-left-radius: 10%; */
+    border-bottom-right-radius: 10%;
+}
+
+section.quote div.img:hover{
+    border-top-left-radius: 0;
+    border-bottom-right-radius: 0;
+    animation-play-state: paused;
+}
+
+
+
+/* ................................................... */
+/* ................%   MESSAGE FORM   %............... */
+
+section.formulaire{
+    padding-top: 200px;
+    margin-bottom: 200px;
+}
+
+section.formulaire div.form_paper{
+    width: 80%;
+    box-shadow: -5px 5px 4px 3px var(--clr9);
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+section.formulaire h3{
+    margin-top: 0;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: var(--clr5);
+    margin-bottom: 0;
+}
+
+section.formulaire div.form_paper .p-container{
+    background-color: var(--clr5);
+    margin: 0;
+}
+
+section.formulaire div.form_paper p{
+    color: var(--clr4);
+    padding: 20px 70px;
+    font-size: 18px;
+    border-top-left-radius: 5rem;
+    background-color: white;
+    margin-top: 0;
+    padding-top: 40px;
+}
+
+div.form_paper p a{
+    text-decoration: none;
+    color: var(--clr1);
+    border-bottom: solid 2px var(--clr1);
+}
+
+div.form_paper p a:hover{
+    font-size: 19px;
+}
+
+form{
+    width: 100%;
+    text-align: center;
+    padding: 10px 10px 30px 0px;
+}
+
+form div{
+    margin-top: 20px;
+}
+
+label{
+    display: inline-block;
+    width: 80px;
+    text-align: left;
+    color: var(--clr4);
+    font-weight: bold;
+}
+
+input, textarea{
+    font-family: arial;
+    width: 250px;
+    box-sizing: border-box;
+    border: 1px solid var(--clr4);
+}
+
+input:focus, textarea:focus{
+    border-color: var(--clr1);
+}
+
+div.form_button{
+    text-align: center;
+}
+
+div.form_button button{
+    padding: 5px 30px;
+    background-color: var(--clr1);
+    box-shadow: -3px 3px 3px 2px var(--clr9);
+    border: 1px solid var(--clr1);
+    /* color: rgb(233, 212, 212); */
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+
+
+/* ............................................ */
+/* ............................................ */
+/* .............%   PORTFOLIO   %.............. */
+/* ............................................ */
+/* ............................................ */
+
+/* .................................................... */
+/* .............%   HEADER CAROUSEL   %................ */
+
+.portfolio-title-container{
+    background-color: var(--clr5);
+}
+
+.portfolio-title-container h2{
+    color: rgb(211, 211, 211);
+    display: block;
+    margin: 0;
+    text-align: center;
+    padding: 20px 0px;
+    border-bottom: 0px solid white;
+}
+
+.carousel-inner{
+    background-color: var(--clr5);
+}
+
+.carousel-inner img {
+    border-top-left-radius: 40%;
+}
+
+
+/* .................................................... */
+/* ...........%   PORTFOLIO DESCRIPTION   %............ */
+section.portf-desc .visit-or-download{
+    margin-top: 50px;
+    text-align: center;
+}
+
+section.portf-desc .visit-or-download a{
+    text-decoration: none;
+    color: var(--clr1);
+    border: 2px solid var(--clr1);
+    border-radius: 3rem;
+    padding: 5px 20px;
+    background-color: var(--clr7);
+
+}
+
+section.portf-desc p{
+    margin: 50px;
+}
+
+div.second-parag-container{
+    padding: 150px 50px;
+}
+
+#first-parag{
+    margin-bottom: 10px;
+}
+
+div.second-parag-container p{
+    color: #d8d6d6;
+    margin: 0;
+}
+
+#third-parag{
+    margin-top: 10px;
+}
+
+
+
+
+
+/* ................................................... */
+/* ................................................... */
+/* .............%   PHONE DESIGN   %.................. */
+/* ................................................... */
+/* ................................................... */
+@media only screen and (max-width: 767px){
+    
+    /* ............................................ */
+    /* ..............%   BASE   %.................. */
+    /* ............................................ */
+   
+    /* .............................................. */
+    /* .............%   NAV BAR   %.................. */
+    nav li a{
+        color: var(--clr4);
+        font-size: 15px;
+        font-weight: bold;
+    }
+    
+    nav li a:hover{
+        font-size: 17px;
+    }
+
+
+    /* .............................................. */
+    /* ..............%   FOOTER   %.................. */
+    footer div.social_info{
+        width: 200px;
+        margin-left: -100px;
+    }
+
+    footer div.social_icone img{
+        width: 23px;
+    }
+
+    footer div.social_info p#social{
+        margin-top: 20px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border-bottom: var(--clr1) 2px solid;
+        font-size: 13px;
+        margin-bottom: 0;
+    }
+
+    footer div.social_info p#copyright{
+        margin-top: 20px;
+        font-size: 11px;
+        margin-bottom: 5px;
+    }
+
+
+    
+    /* ............................................ */
+    /* .............%   INDEX   %.................. */
+    /* ............................................ */
+
+    /* ............................................. */
+    /* .............%   HEADER   %.................. */
+    @media only screen and (max-width: 600px){
+        div.profil_text{
+            box-shadow: 5px 0px 6px 6px var(--clr9
+            );
+        }
+        
+        div.profil_img_container{
+            background-color: rgba(235, 230, 230, 0);
+            width: 42%;
+            box-shadow: 10px 0px 6px 6px var(--clr9);
+        }
+    }
+
+    /* ........................................... */
+    /* .............%   HEADER   %................ */
+
+    h1{
+        font-size: 22px;
+        padding-bottom: 4px;
+    }
+
+    div.short_line{
+        width: 100px;
+    }
+
+    div.profil_text p{
+        font-size: 16px;
+        padding: 0 10px;
+        padding-top: 15px;
+    }
+
+    div.main_button{
+        padding: 5px 20px;
+    }
+
+    div.main_button a{
+        font-size: 17px;
+    }
+
+    div.email_lower_at_bottom p a{
+        font-size: 11px;
+    }
+
+
+    /* .................................................... */
+    /* ...............%   PROFILE INTRO   %................ */
+    section.intro p{
+        font-size: 18px;
+    }
+
+    /* ................................................... */
+    /* ................%   MORE INFO   %.................. */
+    div.txt{
+        width: 90%;
+        display: block;
+        margin: 0;
+        padding-left: 17px;
+        font-size: 16px;
+    }
+
+    h2{
+        font-size: 22px;
+    }
+
+    div.info_bloc_img_container{
+        display: block;
+        width: 75%;  
+    }
+    
+    div.info_bloc_img_container img:hover{
+        right: -30px;
+        width: 120%;
+    }
+
+    div.txt p{
+        padding: 50px 0px;
+    }
+
+    div.bouton_cv{
+        margin: 30px 0 20px 0;
+    }
+
+
+    /* ................................................... */
+    /* ................%   Portfolio   %.................. */
+    section.portfolio{
+        padding-top: 40px;
+        padding-bottom: 20px;
+    }
+
+    div.portf_category{
+        margin: 70px 0;
+    }
+
+    div.portf_category h3.portf_category_title{
+        font-size: 17px;
+    }
+
+    div.portf_layout h3{
+        font-size: 16px;
+    }
+
+    div.portf_layout div.img{
+        width: 55%;
+    }
+
+    div.portf_layout div.describ_text{
+        font-size: 15px;
+        padding: 10px 20px;
+    }
+    
+    img.next_arrow{
+        width: 30px;
+    }
+
+
+    /* ............................................... */
+    /* ................%   Quote   %.................. */
+    section.quote{
+        padding-top: 150px;
+    }
+
+
+    /* ................................................... */
+    /* ................%   MESSAGE FORM   %............... */
+    section.formulaire h3{
+        font-size: 17px;
+    }
+
+    section.formulaire div.form_paper{
+        width: 90%;
+    }
+
+    section.formulaire div.form_paper p{
+        padding: 20px 30px;
+        font-size: 15px;
+        margin-top: -1px;
+        /* margin-right: -1px; */
+    }
+
+    div.form_paper p a:hover{
+        font-size: 17px;
+    }
+
+    label{
+        font-size: 13px;
+        width: 70px;
+        padding-left: 10px;
+        /* margin-right: 5px; */
+    }
+
+    input, textarea{
+        width: 200px;
+    }
+
+
+
+    /* ............................................ */
+    /* .............%   PORTFOLIO   %.............. */
+    /* ............................................ */
+
+    /* .................................................... */
+    /* ...........%   PORTFOLIO DESCRIPTION   %............ */
+    section.portf-desc .visit-or-download a{
+    padding: 3px 10px;
+    font-size: 14px;
+
+}
+    
+    section.portf-desc p{
+        margin: 30px;
+        font-size: 15px;
+    }
+
+    div.second-parag-container{
+        padding: 80px 30px;
+    }
+
+    div.second-parag-container p{
+        margin: 0;
+    }
+
+
+}
+

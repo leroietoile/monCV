@@ -1,0 +1,147 @@
+{% load static %}
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'cv/style.css' %}">
+    <title>King Kakatsi</title>
+</head>
+<body>
+
+    <nav id="my-bar">
+        <!-- <li class="name-as-logo">King Kakatsi</li> -->
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'index' %}#portfolio">Portfolio</a></li>
+        <li><a href="tel:+233535610908">Call me</a></li>
+        <li><a href="{% url 'index' %}#formulaire" id="contact-nav-link">Message</a></li>
+    </nav>
+
+    <div class="floating_button_div">
+        <a href="https://wa.me/233535610908"><img src="{% static 'cv/images/logo_wathsapp.png' %}" alt=""></a>
+    </div>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer>
+        <div class="social_info">
+            <div class="social_icone appear">
+                <a href="https://www.facebook.com/leroibeaudoigts.KAKATSI" target="_blank"><img src="{% static 'cv/images/logo_fb.png' %}" alt=""></a>
+
+                <a href="https://t.me/kingiscoding" target="_blank"><img src="{% static 'cv/images/logo_telegram.png' %}" alt=""></a>
+
+                <a href="mailto:leroietoile@gmail.com?subject=Offre%20de%20projet" target="_blank"><img src="{% static 'cv/images/logo_mail2.png' %}" alt=""></a>
+            </div>
+            <p id="social">My social media</p>
+            <p id="copyright">copyright © 2023</p>
+        </div>
+        <img src="{% static 'cv/images/foot_pic3.png' %}" alt="" id="foot_pic">       
+    </footer>
+
+
+    <script src="{% static 'cv/scrollreveal.min.js' %}"></script>
+
+    <script>
+
+        // ..........% GET VISITOR MSG %..............
+        const v_name = document.getElementById('name');
+        const v_mail = document.getElementById('mail');
+        const v_object = document.getElementById('objet');
+        const v_message = document.getElementById('message');
+
+        $(document).on("click", ".send-message-btn", function(e){
+        
+            e.preventDefault();
+        
+            $.ajax({
+                
+                type: 'POST',
+                url: '{% url "send-message" %}',
+                data: {
+                    name: v_name.value,
+                    mail: v_mail.value,
+                    object: v_object.value,
+                    message: v_message.value,
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                    action: 'post'
+                },
+                
+                success: function(json){
+                    response = json['response_msg'];
+                    alert(response);
+                    if(response == 'Message sent successfully.'){
+                        v_name.value = '';
+                        v_mail.value = '';
+                        v_object.value = '';
+                        v_message.value = '';
+                    }
+                },
+
+                error: function(xhr, errmsg, err){
+
+                }
+
+            })
+
+        })
+
+
+        // ...............% ANIMATION BY SCROLL REVEAL %...............
+        const sr = ScrollReveal({
+            duration: 2000,
+            reset: true,
+        });
+
+        sr.reveal(".profil_text", {
+            origin: "left",
+            distance: "100px",
+            opacity: .7,
+            scale: .8,
+        })
+
+        sr.reveal(".profil_img_container", {
+            origin: "right",
+            distance: "70px",
+            opacity: 1,
+        })
+
+        sr.reveal(".appear", {
+            distance: "25px",
+            scale: .95,
+        })
+
+        sr.reveal(".slide_from_right", {
+            origin: 'right',
+            distance: "100px",
+            scale: .9,
+        })
+
+        sr.reveal(".slide_from_top", {
+            origin: 'top',
+            distance: "100px",
+            scale: .9,
+        })
+
+        sr.reveal(".slide_from_bottom", {
+            origin: 'bottom',
+            distance: "100px",
+            scale: .9,
+        })
+
+        sr.reveal(".slide_from_left", {
+            origin: 'left',
+            distance: "100px",
+            scale: .95,
+            opacity: .95,
+        })
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>

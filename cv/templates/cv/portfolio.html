@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="portfolio-title-container">
+    <h2>{{ current_portfolio.name }}</h2>
+</div>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true" data-bs-wrap="true">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        {% if current_portfolio.picture1 %}
+        <img class="d-block w-100" src="{{ current_portfolio.picture1.url }}" alt="First slide">
+        {% else %}
+        <img class="d-block w-100" src="{% static 'cv/images/image.jpg' %}" alt="First slide">
+        {% endif %}
+      </div>
+
+      <div class="carousel-item">
+        {% if current_portfolio.picture2 %}
+        <img class="d-block w-100" src="{{ current_portfolio.picture2.url }}" alt="Second slide">
+        {% else %}
+        <img class="d-block w-100" src="{% static 'cv/images/image.jpg' %}" alt="Second slide">
+        {% endif %}
+      </div>
+
+      <div class="carousel-item">
+        {% if current_portfolio.picture3 %}
+        <img class="d-block w-100" src="{{ current_portfolio.picture3.url }}" alt="Third slide">
+        {% else %}
+        <img class="d-block w-100" src="{% static 'cv/images/image.jpg' %}" alt="Third slide">
+        {% endif %}
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+  <section class="portf-desc">
+    {% if current_portfolio.type.name == "web" or current_portfolio.type.name == "other" %}
+      {% if current_portfolio.web_address %}
+      <div class="visit-or-download"><a href="https://{{ wb_ad }}">Visit the web site</a></div>
+      {% endif %}
+
+    {% else %}
+      {% if current_portfolio.file %}
+      <div class="visit-or-download"><a href="{{ current_portfolio.file.url }}" class="downloader" download="{{ current_portfolio.name }}">Download</a></div>
+      {% endif %}
+    {% endif %}
+
+    <p id="first-parag" class="slide_from_top">{{ current_portfolio.paragraph1 }}</p>
+
+    <div class="second-parag-container slide_from_bottom" style="background: url({% static 'cv/images/triangle1white.svg' %}) no-repeat center top/100%, url({% static 'cv/images/triangle2white.svg' %}) no-repeat center bottom/100%, #591C21;">
+        <p>{{ current_portfolio.paragraph2 }}</p>
+    </div>
+
+    <p id="third-parag" class="appear">{{ current_portfolio.paragraph3 }}</p>
+  </section>
+
+{% endblock %}

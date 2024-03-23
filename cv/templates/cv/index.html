@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- ..............% HEADER %................ -->
+<header id="header" style="background: url({% static 'cv/images/desk-593327_1920.jpg' %}) no-repeat center/cover;">
+    <div class="profil_text">
+        <h1>{{ my_full_name }}</h1>
+
+        <div class="short_line"></div>
+
+        <p>{{ my_profile.profession }}</p>
+
+        <div class="main_button_container0">
+            <div class="main_button">
+                <a href="tel:{{ my_profile.phone_number }}">Contact me</a>
+            </div>
+        </div>
+
+        <div id="email" class="email_lower_at_bottom"><p><a href="mailto:{{ my_profile.email }}?subject=Project%20work" target="_blank">Email : {{ my_profile.email }}</a></p></div>
+    </div>
+
+    <div class="profil_img_container"> 
+        {% if my_profile.picture %}   
+        <img src="{{ my_profile.picture.url }}" alt="">
+        {% else %}
+        <img src="{% static 'cv/images/LeroiProfil.png' %}" alt="">
+        {% endif %}
+    </div>
+</header>
+
+
+<!-- ............% INTRO %............... -->
+{% for block in blocks %}
+{% if 'intro' in block.section.title %}
+<section class="intro appear">
+    <div class="intro-block">
+        <p>{{ block.short_description }}</p>
+    
+        <div class="short_line" style="background-color: lightgrey;"></div>
+    </div>
+</section>
+{% endif %}
+{% endfor %}
+
+
+<!-- ...............% ABOUT %................ -->
+{% for block in blocks %}
+{% if 'about' in block.section.title %}
+<section class="More_info slide_from_top" style="background: url({% static 'cv/images/triangle1white.svg' %}) no-repeat center top/100%, url({% static 'cv/images/triangle2white.svg' %}) no-repeat center bottom/100%, #363535;">
+    <div class="h2_container"><h2>{{ block.title.upper }}</h2></div>
+    <div class="info_bloc_img_container">
+        {% if block.picture %}
+        <img src="{{ block.picture.url }}" alt="">
+        {% else %}
+        <img src="{% static 'cv/images/tof1.jpg' %}" alt="">
+        {% endif %}
+    </div>
+    <div class="txt">
+        <p>{{ block.paragraph1 }}<br><br>{{ block.paragraph2 }}<br><br>{{ block.paragraph3 }}</p>
+        <div style="text-align: center;"  id="just_before_cv_downloader"><a href="" class="bouton_linkedin" target="_blank">LinkedIn profile  ➜</a></div>
+    </div>
+
+    {% if block.file %}
+    <div class="bouton_cv">
+        <a href="{{ block.file.url }}" class="cv_downloader" download="CV_LEROI">Telecharger mon CV</a>
+    </div>
+    {% endif %}
+</section>
+{% endif %}
+{% endfor %}
+
+
+<!-- ...........% PORTFOLIO %................ -->
+{% if portf_dict|length > 0 %}
+<section class="portfolio" id="portfolio">
+    <div class="h2_container"><h2>PORTFOLIO</h2></div>
+
+    {% for type, portf_list in portf_dict.items %}
+    <div class="portf_category">
+        <h3 class="portf_category_title">{{ type }}</h3>
+
+        {% for portf in portf_list %}   
+        <table class="layout_set appear">
+            <tr>
+                <td class="portf_layout_td">
+                    <div class="portf_layout">
+                        {% if portf.picture1 %}
+                        <div class="img" style="background: url('{{ portf.picture1.url }}') no-repeat center/cover;"></div>
+                        {% else %}
+                        <div class="img" style="background: url('{% static 'cv/images/image.jpg' %}') no-repeat center/cover;"></div>
+                        {% endif %}
+        
+                        <div class="describ_text">
+                            <h3>{{ portf.name }}</h3>
+                            <hr>
+                            <p>{{ portf.short_description }}</p>
+                        </div>
+                    </div>
+                </td>
+
+                <td class="arrow_td">
+                    <a href="{{ portf.get_absolute_url }}" id="a2"><img src="{% static 'cv/images/fleche.png' %}" alt="" class="next_arrow"></a>
+                </td>
+            </tr>
+        </table>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+       
+    
+</section>
+{% endif %}
+
+
+<!-- .................% QUOTE %.................. -->
+<style>
+    @keyframes fondu{
+        0%{background-image: url("{% static 'cv/images/quote4.jpg' %}");}
+        34%{background-image: url("{% static 'cv/images/quote5.jpg' %}");}
+        66%{background-image: url("{% static 'cv/images/quote3.png' %}");}
+        100%{background-image: url("{% static 'cv/images/quote4.jpg' %}");}
+    }
+</style>
+
+<section class="quote slide_from_bottom" style="background: url({% static 'cv/images/triangle1white.svg' %}) no-repeat center top/100%, url({% static 'cv/images/triangle2white.svg' %}) no-repeat center bottom/100%, #F4F4F4;">
+
+    <div class="img_container">
+        <div class="img"></div>
+    </div>
+
+</section>
+
+
+
+<!-- .................% MESSAGE FORM %............. -->
+<section class="formulaire" id="formulaire">
+    <div class="form_paper" style="background: url({% static 'cv/images/triangle2.svg' %}) no-repeat center bottom/100%;">
+        <h3>Laissez-moi un message</h3> 
+        <div class="p-container">
+            <p>Don't hesitate to contact me via <a href="https://wa.me/22896994996" target="_blank">Wathsapp</a> or directly here to discuss projects, professional opportunities, or simply to exchange ideas!</p>  
+        </div>
+        <form action="/my-handling-form-page" method="post">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" placeholder="My full name" id="name" name="user_name">
+            </div>
+            <div>
+                <label for="mail">Email</label>
+                <input type="email" placeholder="my-email@gmail.com" id="mail" name="user_mail">
+            </div>
+            <div>
+                <label for="objet">Object</label>
+                <input type="text" placeholder="ex: Ask for web site creation" id="objet" name="user_objet">
+            </div>
+            <div>
+                <label for="message">Message</label>
+                <textarea name="user_message" id="message" cols="30" rows="10"></textarea>
+            </div>
+            <div class="form_button">
+                <button type="button" class="send-message-btn">Send</button>
+            </div>
+        </form>  
+    </div>
+</section>
+
+
+{% endblock %}
